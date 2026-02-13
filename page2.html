@@ -2,58 +2,60 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>For You 🌹</title>
+<title>Flowers For You 🌹</title>
 
 <style>
 body {
   margin: 0;
-  background: linear-gradient(135deg, #ff8fab, #ffb3c6);
+  background: #ff6f91;
   font-family: Arial, sans-serif;
   text-align: center;
   overflow: hidden;
   color: white;
 }
 
-.container {
-  padding-top: 50px;
-}
-
 h1 {
-  font-size: 42px;
-  margin-bottom: 25px;
+  margin-top: 40px;
+  font-size: 40px;
 }
 
 .card {
-  background: #ff6f91;
-  width: 360px;
-  margin: 30px auto;
-  padding: 30px;
-  border-radius: 30px;
-  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+  background: #ff8fab;
+  width: 320px;
+  margin: 40px auto;
+  padding: 20px;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  position: relative;
 }
 
 .card img {
-  width: 260px;
+  width: 250px;
   border-radius: 20px;
-  margin-bottom: 20px;
 }
 
-.note {
+.message {
+  position: absolute;
   background: white;
   color: #ff4b6e;
-  padding: 25px;
-  border-radius: 20px;
-  font-size: 16px;
-  line-height: 1.6;
+  padding: 8px 12px;
+  border-radius: 15px;
+  font-size: 14px;
 }
 
-.note p {
-  margin: 12px 0;
+.msg1 {
+  top: 120px;
+  left: -140px;
 }
 
-.heart {
+.msg2 {
+  top: 120px;
+  right: -170px;
+}
+
+.hearts {
   position: fixed;
-  font-size: 22px;
+  font-size: 20px;
   animation: float 6s linear infinite;
 }
 
@@ -66,35 +68,25 @@ h1 {
 
 <body>
 
-<div class="container">
+<h1>Flowers For You 🌹</h1>
 
-  <h1>Flowers For You 🌹</h1>
+<div class="card">
+  <img src="photo.png" alt="Bouquet">
 
-  <div class="card">
-    <img src="flowers.png" alt="Bouquet">
-
-    <div class="note">
-      <p>I don’t know what the future holds for us,</p>
-      <p>but I know what you mean to me.</p>
-
-      <p>You’ve been a part of my heart in ways  
-      I can’t explain with simple words.</p>
-
-      <p>No matter where life takes us,  
-      I will always be grateful for you.</p>
-
-      <p>You were never just a moment —  
-      you were something real. ❤️</p>
-    </div>
+  <div class="message msg1">
+    I will always love you no matter what ❤️
   </div>
 
+  <div class="message msg2">
+    You will forever be my only option 💕
+  </div>
 </div>
 
 <script>
-// floating hearts animation
+// floating hearts
 setInterval(() => {
   const heart = document.createElement("div");
-  heart.className = "heart";
+  heart.className = "hearts";
   heart.innerHTML = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
   heart.style.fontSize = Math.random() * 20 + 15 + "px";
