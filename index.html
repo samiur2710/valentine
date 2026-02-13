@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  font-family: Arial, sans-serif;
+}
+
+.box {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+img {
+  width: 220px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  margin-top: 20px;
+  position: relative;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#yesBtn {
+  background: #ff4b6e;
+  color: white;
+}
+
+#noBtn {
+  background: #ccc;
+  position: absolute;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <img src="photo.png" alt="Us">
+
+  <h2>Dear Rimi ❤️</h2>
+  <p>You mean more to me than words can say.</p>
+
+  <h3>Will you be my Valentine?</h3>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="yesClick()">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+
+// Place No beside Yes at start
+function placeNo() {
+  const yesRect = yesBtn.getBoundingClientRect();
+  noBtn.style.left = (yesRect.width + 20) + "px";
+  noBtn.style.top = "0px";
+}
+placeNo();
+
+// Make No run away
+noBtn.addEventListener("mouseenter", () => {
+  const maxX = window.innerWidth - noBtn.offsetWidth - 20;
+  const maxY = window.innerHeight - noBtn.offsetHeight - 20;
+
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
+
+  noBtn.style.position = "fixed";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
+});
+
+// Go to next page
+function yesClick() {
+  window.location.href = "page2.html";
+}
+</script>
+
+</body>
+</html>

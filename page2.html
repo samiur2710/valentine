@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>You + Me Forever ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  background: #ff8fa3;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.container {
+  padding-top: 40px;
+}
+
+h1 {
+  color: white;
+  font-size: 40px;
+}
+
+.photo-frame {
+  display: inline-block;
+  padding: 10px;
+  border: 8px solid white;
+  border-radius: 20px;
+  margin: 20px 0;
+}
+
+.photo-frame img {
+  width: 250px;
+  border-radius: 15px;
+}
+
+.note {
+  background: white;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 15px;
+  margin-top: 20px;
+  max-width: 300px;
+}
+
+.note p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.heart {
+  position: fixed;
+  font-size: 20px;
+  color: white;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  from { transform: translateY(100vh); opacity: 1; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>You + Me Forever 💕</h1>
+
+  <div class="photo-frame">
+    <img src="photo.png">
+  </div>
+
+  <div class="note">
+    <p>To the love of my life,</p>
+    <p>You make my world brighter.</p>
+    <p>I’m so lucky to have you.</p>
+    <p>I love you endlessly ❤️</p>
+  </div>
+
+</div>
+
+<script>
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}, 500);
+</script>
+
+</body>
+</html>
