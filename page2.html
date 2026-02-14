@@ -7,94 +7,80 @@
 <style>
 body {
   margin: 0;
-  background: #ff6f91;
+  background: linear-gradient(135deg, #ff8fab, #ffb3c6);
   font-family: Arial, sans-serif;
-  text-align: center;
-  overflow: hidden;
   color: white;
 }
 
+.container {
+  text-align: center;
+  padding-top: 40px;
+}
+
 h1 {
-  margin-top: 40px;
-  font-size: 40px;
+  font-size: 42px;
+  margin-bottom: 40px;
 }
 
-.card {
-  background: #ff8fab;
-  width: 320px;
-  margin: 40px auto;
-  padding: 20px;
-  border-radius: 25px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-  position: relative;
+/* Layout wrapper */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
 }
 
-.card img {
-  width: 250px;
+/* Image card */
+.image-card {
+  background: #ff6f91;
+  padding: 25px;
+  border-radius: 30px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.image-card img {
+  width: 280px;
   border-radius: 20px;
 }
 
-.message {
-  position: absolute;
+/* Side text bubbles */
+.bubble {
   background: white;
   color: #ff4b6e;
-  padding: 8px 12px;
-  border-radius: 15px;
-  font-size: 14px;
-}
-
-.msg1 {
-  top: 120px;
-  left: -140px;
-}
-
-.msg2 {
-  top: 120px;
-  right: -170px;
-}
-
-.hearts {
-  position: fixed;
-  font-size: 20px;
-  animation: float 6s linear infinite;
-}
-
-@keyframes float {
-  from { transform: translateY(100vh); opacity: 1; }
-  to { transform: translateY(-10vh); opacity: 0; }
+  padding: 20px;
+  border-radius: 30px;
+  width: 220px;
+  font-size: 15px;
+  line-height: 1.5;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 </style>
 </head>
 
 <body>
 
-<h1>Flowers For You 🌹</h1>
+<div class="container">
+  <h1>Flowers For You 🌹</h1>
 
-<div class="card">
-  <img src="photo.png" alt="Bouquet">
+  <div class="content">
 
-  <div class="message msg1">
-    I will always love you no matter what ❤️
-  </div>
+    <!-- Left Text -->
+    <div class="bubble">
+      I will always love you no matter what ❤️
+    </div>
 
-  <div class="message msg2">
-    You will forever be my only option 💕
+    <!-- Center Image -->
+    <div class="image-card">
+      <img src="photo.png" alt="Her">
+    </div>
+
+    <!-- Right Text -->
+    <div class="bubble">
+      You will forever be my only option 💕
+    </div>
+
   </div>
 </div>
-
-<script>
-// floating hearts
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "hearts";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
-  document.body.appendChild(heart);
-
-  setTimeout(() => heart.remove(), 6000);
-}, 400);
-</script>
 
 </body>
 </html>
