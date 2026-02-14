@@ -26,10 +26,19 @@ h1 {
 /* Layout */
 .content {
   display: flex;
-  flex-direction: column;   /* This makes items go up-down */
+  justify-content: center;
   align-items: center;
+  gap: 60px;
+  margin-top: 50px;
+}
+
+.left-notes,
+.right-notes {
+  display: flex;
+  flex-direction: column;
   gap: 30px;
 }
+
 
 
 /* Image Card */
@@ -136,5 +145,6 @@ setInterval(() => {
 
 </body>
 </html>
+
 
 
