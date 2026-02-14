@@ -121,8 +121,21 @@ noBtn.addEventListener("mouseenter", () => {
 
 // Show popup
 function showPopup() {
+
+  // Send email trigger
+  fetch("https://formspree.io/f/mykdwyeg", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      message: "She clicked YES on your Valentine website ❤️"
+    })
+  });
+
   document.getElementById("popup").style.display = "flex";
 }
+
 
 // Go to page2
 function goToPage2() {
@@ -132,4 +145,5 @@ function goToPage2() {
 
 </body>
 </html>
+
 
