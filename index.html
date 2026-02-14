@@ -91,9 +91,11 @@ button {
 /* Floating hearts */
 .heart {
   position: fixed;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
+  font-size: 30px;
+  animation: floatUp 10s linear infinite;
   z-index: 1;
+  opacity: 0.9;
+  text-shadow: 0 0 15px #ff4b6e;
 }
 
 @keyframes floatUp {
@@ -111,10 +113,11 @@ button {
 .floating-text {
   position: fixed;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
-  animation: floatUp 8s linear infinite;
+  animation: floatUp 12s linear infinite;
   z-index: 1;
+  text-shadow: 0 0 10px #ff4b6e;
 }
 </style>
 </head>
@@ -149,30 +152,35 @@ const noBtn = document.getElementById("noBtn");
 
 /* Move No button */
 noBtn.addEventListener("mouseenter", () => {
-  const randomX = Math.floor(Math.random() * 300) - 150;
-  const randomY = Math.floor(Math.random() * 200) - 100;
+  const randomX = Math.floor(Math.random() * 400) - 200;
+  const randomY = Math.floor(Math.random() * 300) - 150;
   noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
 });
 
-/* Floating hearts */
+/* MORE Floating hearts */
 setInterval(() => {
   const heart = document.createElement("div");
   heart.className = "heart";
   heart.innerHTML = "❤️";
   heart.style.left = Math.random() * 100 + "vw";
-  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  heart.style.fontSize = Math.random() * 30 + 20 + "px";
   document.body.appendChild(heart);
 
-  setTimeout(() => heart.remove(), 6000);
-}, 400);
+  setTimeout(() => heart.remove(), 10000);
+}, 200);
 
-/* Floating text */
+/* MORE Floating text */
 const messages = [
   "Please say yes ❤️",
   "Don't break my heart 🥺",
   "Say yes please 😭",
   "I promise I'll behave 😌",
-  "You know you want to 💕"
+  "You know you want to 💕",
+  "I’ll treat you like a queen 👑",
+  "Just say yes already 😏",
+  "My heart is waiting ❤️",
+  "Forever starts with yes 💍",
+  "You are my favorite person 💗"
 ];
 
 setInterval(() => {
@@ -182,13 +190,12 @@ setInterval(() => {
   text.style.left = Math.random() * 100 + "vw";
   document.body.appendChild(text);
 
-  setTimeout(() => text.remove(), 8000);
-}, 2000);
+  setTimeout(() => text.remove(), 12000);
+}, 800);
 
 /* Show popup */
 function showPopup() {
 
-  // Send email via Formspree
   fetch("https://formspree.io/f/mykdwyeg", {
     method: "POST",
     headers: {
