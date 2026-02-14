@@ -1,3 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>For You ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f6a6b2, #e77b8f);
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Main Box */
+.box {
+  background: #f2f2f2;
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  width: 350px;
+  position: relative;
+  z-index: 2;
+}
+
+img {
+  width: 230px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+button {
+  font-size: 18px;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#yesBtn {
+  background: #ff4b6e;
+  color: white;
+}
+
+#noBtn {
+  background: #ccc;
+  position: relative;
+}
+
+/* POPUP */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 105, 135, 0.95);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  flex-direction: column;
+  z-index: 3;
+}
+
+.popup-overlay h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.popup-overlay button {
+  background: white;
+  color: #ff4b6e;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
 /* Floating hearts */
 .heart {
   position: fixed;
@@ -26,3 +116,97 @@
   animation: floatUp 8s linear infinite;
   z-index: 1;
 }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <img src="photo.png" alt="Us">
+
+  <h2>Dear Rimi ❤️</h2>
+  <p>You mean more to me than words can say..</p>
+  <p>You tricked me on propose day 😏 I want to ask you again..</p>
+
+  <h3>Will you be my Valentine? 🥺</h3>
+
+  <div class="buttons">
+    <button id="yesBtn" onclick="showPopup()">Yes</button>
+    <button id="noBtn">No</button>
+  </div>
+</div>
+
+<!-- Popup -->
+<div class="popup-overlay" id="popup">
+  <h1>YAYYYYY 😍💖</h1>
+  <p>Thank you for choosing YES!</p>
+  <p>Ohhh my God, I am so happy 😭</p>
+  <button onclick="goToPage2()">Continue 💕</button>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+
+/* Move No button */
+noBtn.addEventListener("mouseenter", () => {
+  const randomX = Math.floor(Math.random() * 300) - 150;
+  const randomY = Math.floor(Math.random() * 200) - 100;
+  noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+});
+
+/* Floating hearts */
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = Math.random() * 20 + 15 + "px";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 400);
+
+/* Floating text */
+const messages = [
+  "Please say yes ❤️",
+  "Don't break my heart 🥺",
+  "Say yes please 😭",
+  "I promise I'll behave 😌",
+  "You know you want to 💕"
+];
+
+setInterval(() => {
+  const text = document.createElement("div");
+  text.className = "floating-text";
+  text.innerHTML = messages[Math.floor(Math.random() * messages.length)];
+  text.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(text);
+
+  setTimeout(() => text.remove(), 8000);
+}, 2000);
+
+/* Show popup */
+function showPopup() {
+
+  // Send email via Formspree
+  fetch("https://formspree.io/f/mykdwyeg", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      message: "She clicked YES on your Valentine website ❤️"
+    })
+  });
+
+  document.getElementById("popup").style.display = "flex";
+}
+
+/* Go to page2 */
+function goToPage2() {
+  window.location.href = "page2.html";
+}
+</script>
+
+</body>
+</html>
